@@ -20,18 +20,22 @@ async function renderCards() {
         const card = document.createElement('div');
         const flag = document.createElement('p');
         const word = document.createElement('p');
+        const sentence = document.createElement('p');
         
         card.classList += 'card';
         flag.innerHTML = languages[index].flag;
-        word.innerHTML = w.polish;
+        word.innerHTML = w.plWord;
+        sentence.innerHTML = w.plSentence;
         card.appendChild(flag);
         card.appendChild(word);
+        card.appendChild(sentence);
         card.style.backgroundColor = languages[index].color;
 
         card.onclick = () => {
             index = index >= 2 ? 0 : index + 1;
             flag.innerHTML = languages[index].flag;
-            word.innerHTML = w[languages[index].name];
+            word.innerHTML = w[languages[index].word];
+            sentence.innerHTML = w[languages[index].sentence];
             card.style.backgroundColor = languages[index].color;
         };
 
